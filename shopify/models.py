@@ -16,10 +16,10 @@ class Product(models.Model):
     brand = models.CharField(max_length=255, null=True, blank=True)
     description = models.TextField()
     image = models.ImageField(null=True, blank=True)
-    price = models.DecimalField(null=True, blank=True)
+    price = models.BigIntegerField(null=True, blank=True)
     quantity = models.PositiveIntegerField(null=True, blank=True, default=0)
     createdAt = models.DateTimeField(auto_now_add=True)
-    category = models.ForeignKey(Category, on_delete=True)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.id
