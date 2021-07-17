@@ -19,7 +19,8 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('', include('siteusers.urls')),
     path('', include('shopify.urls')),
+    path('', include('siteusers.urls')),
+
     path('admin/', admin.site.urls),
 ]
