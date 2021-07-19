@@ -1,50 +1,59 @@
-{% extends 'store/main.html' %}
-{% load static %}
-
-{% block content %}
+{% extends 'store/main.html' %} {% load static %} {% block content %}
 <h2>Cart</h2>
 <div class="row">
-    <div class="col-lg-12">
-        <div class="box-element product shadow-box p-3">
-
-            <a class="btn btn-outline-dark" href="{% url 'store' %}">&#x2190; Continue Shopping</a>
-            <br>
-            <br>
-            <table class="table">
-                <tr>
-                    <th><h5>Items: <b>3</b></h5></th>
-                    <th><h5>Total: <b>$42</b></h5></th>
-                    <th>
-                        <a style="float:right; margin:5px;" class="btn btn-success" href="{% url 'checkout' %}">Checkout</a>
-                    </th>
-                </tr>
-            </table>
-        </div>
-        <br>
-        
-        <div class="box-element ">
-            <div class="row">
-                <div class=col-sm-3></div>
-                <div class=col-sm-3> <b>Item</b> </div>
-                <div class=col-sm> <b>Price</b> </div>
-                <div class=col-sm> <b>Quantity</b> </div>
-                <div class=col-sm> <b>Total</b> </div>
-            </div>
-
-            <div class="row">
-                <div class=col-sm-3><img class="img-fluid" src="{% static 'images/sample.png' %}"></div>
-                <div class=col-sm-3><p>Product 1</p></div>
-                <div class=col-sm><p>$20</p></div>
-                <div class=col-sm>
-                    <p>2
-                        <i class="fas fa-chevron-up"></i>
-                        <i class="fas fa-chevron-down"></i>
-                    </p>
-                    </div>
-                <div class="col-sm"><p>$32</p></div>
-            </div>
-
-        </div>
+  <div class="col-lg-12">
+    <div class="box-element product shadow-box p-3">
+      <a class="btn btn-outline-dark" href="{% url 'store' %}"
+        >&#x2190; Continue Shopping</a
+      >
+      <br />
+      <br />
+      <table class="table">
+        <tr>
+          <th>
+            <h5>Items: <b>3</b></h5>
+          </th>
+          <th>
+            <h5>Total: <b>$42</b></h5>
+          </th>
+          <th>
+            <a
+              style="float: right; margin: 5px"
+              class="btn btn-success"
+              href="{% url 'checkout' %}"
+              >Checkout</a
+            >
+          </th>
+        </tr>
+      </table>
     </div>
+    <br />
+
+    <div class="box-element shadow-box p-3">
+      <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-3"><b>Item</b></div>
+        <div class="col-sm"><b>Price</b></div>
+        <div class="col-sm"><b>Quantity</b></div>
+        <div class="col-sm"><b>Total</b></div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-3">
+          <img class="img-fluid" src="{% static 'images/sample.png' %}" />
+        </div>
+        <div class="col-sm-3"><p>Product 1</p></div>
+        <div class="col-sm"><p>$20</p></div>
+        <div class="col-sm">
+          <p>
+            2
+            <i class="fas fa-chevron-up"></i>
+            <i class="fas fa-chevron-down"></i>
+          </p>
+        </div>
+        <div class="col-sm"><p>$32</p></div>
+      </div>
+    </div>
+  </div>
 </div>
 {% endblock content %}
