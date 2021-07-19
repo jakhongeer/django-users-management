@@ -5,7 +5,7 @@
 <h2>Cart</h2>
 <div class="row">
     <div class="col-lg-12">
-        <div class="box-element">
+        <div class="box-element product shadow-box p-3">
 
             <a class="btn btn-outline-dark" href="{% url 'store' %}">&#x2190; Continue Shopping</a>
             <br>
@@ -21,28 +21,27 @@
             </table>
         </div>
         <br>
-        <div class="box-element">
-            <div class="cart-row">
-                <div style="flex:2"></div>
-                <div style="flex:2"> <b>Item</b> </div>
-                <div style="flex:1"> <b>Price</b> </div>
-                <div style="flex:1"> <b>Quantity</b> </div>
-                <div style="flex:1"> <b>Total</b> </div>
+        
+        <div class="box-element ">
+            <div class="row">
+                <div class=col-sm-3></div>
+                <div class=col-sm-3> <b>Item</b> </div>
+                <div class=col-sm> <b>Price</b> </div>
+                <div class=col-sm> <b>Quantity</b> </div>
+                <div class=col-sm> <b>Total</b> </div>
             </div>
 
-            <div class="cart-row">
-                <div style="flex:2"><img class="img-fluid row-image" src="{% static 'images/sample.png' %}"></div>
-                <div style="flex:2"><p>Product 1</p></div>
-                <div style="flex:1"><p>$20</p></div>
-                <div style="flex:1">
-                    <p class="quantity">2</p>
-                    <div class="quantity">
+            <div class="row">
+                <div class=col-sm-3><img class="img-fluid" src="{% static 'images/sample.png' %}"></div>
+                <div class=col-sm-3><p>Product 1</p></div>
+                <div class=col-sm><p>$20</p></div>
+                <div class=col-sm>
+                    <p>2
                         <i class="fas fa-chevron-up"></i>
-                
                         <i class="fas fa-chevron-down"></i>
+                    </p>
                     </div>
-                </div>
-                <div style="flex:1"><p>$32</p></div>
+                <div class="col-sm"><p>$32</p></div>
             </div>
 
         </div>
