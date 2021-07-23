@@ -21,7 +21,7 @@ def cart(request):
         products = order.ordereditem_set.all()
     else:
         products = []
-    context = {'products': products}
+    context = {'products': products, 'order': order}
     return render(request, 'store/cart.html', context)
 
 def checkout(request):

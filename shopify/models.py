@@ -58,6 +58,15 @@ class Order(models.Model):
 
     def __str__(self):
         return str(self.id)
+    def get_cart_total(self):
+        ordereditems = self.ordereditem_set.all()
+        total = sum([product.get_total for product in ordereditems])
+        return total
+
+    def get_cart_products(self):
+        ordereditems = self.ordereditem_set.all()
+        total = sum([product.quantity for product in ordereditems])
+        return total
 
 class OrderedItem(models.Model):
     product = models.ForeignKey(Product, on_delete=models.SET_NULL, blank=True, null=True)
