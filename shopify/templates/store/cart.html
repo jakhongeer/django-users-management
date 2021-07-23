@@ -38,22 +38,26 @@
         <div class="col-sm"><b>Total</b></div>
       </div>
 
+      {% for product in products %}
       <div class="row">
         <div class="col-sm-3">
-          <img class="img-fluid" src="{% static 'images/sample.png' %}" />
+          <img class="img-fluid" src="{{product.product.imageURL}}" />
         </div>
-        <div class="col-sm-3"><p>Product 1</p></div>
-        <div class="col-sm"><p>$20</p></div>
+        <div class="col-sm-3"><p>{{product.product.name}}</p></div>
+        <div class="col-sm"><p>${{product.product.price}}</p></div>
         <div class="col-sm">
           <p>
-            2
+            {{product.product.quantity}}
             <i class="fas fa-chevron-up"></i>
             <i class="fas fa-chevron-down"></i>
           </p>
         </div>
         <div class="col-sm"><p>$32</p></div>
       </div>
+      {% endfor %}
+      
     </div>
   </div>
+ 
 </div>
 {% endblock content %}
