@@ -14,7 +14,7 @@
             <h5>Items: <b>3</b></h5>
           </th>
           <th>
-            <h5>Total: <b>$42</b></h5>
+            <h5>Total: <b>${{}}</b></h5>
           </th>
           <th>
             <a
@@ -47,12 +47,12 @@
         <div class="col-sm"><p>${{product.product.price}}</p></div>
         <div class="col-sm">
           <p>
-            {{product.product.quantity}}
+            {{product.quantity}}
             <i class="fas fa-chevron-up"></i>
             <i class="fas fa-chevron-down"></i>
           </p>
         </div>
-        <div class="col-sm"><p>$32</p></div>
+        <div class="col-sm"><p>${{product.get_total}}</p></div>
       </div>
       {% endfor %}
       
