@@ -54,9 +54,10 @@ class Order(models.Model):
     start_date = models.DateTimeField(auto_now_add=True)
     ordered_date = models.DateTimeField()
     ordered = models.BooleanField(default=False)
+    transaction_id = models.BigIntegerField(null=True, blank=True, default=0)
 
-    def __int__(self):
-        return self.id
+    def __str__(self):
+        return str(self.id)
 
 class OrderedItem(models.Model):
     product = models.ForeignKey(Product, on_delete=models.SET_NULL, blank=True, null=True)
@@ -64,4 +65,5 @@ class OrderedItem(models.Model):
     quantity = models.PositiveIntegerField(default=0, null=True, blank=True)
     date_added = models.DateTimeField(auto_now=True)
 
-    
+    def __str__(self):
+        return str(self.order)
