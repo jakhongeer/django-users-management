@@ -34,7 +34,18 @@ class Product(models.Model):
         return self.name
 
 
-
+    def imageURL(self):
+        try:
+            url = self.image.url
+        except:
+            url = '/static/images/sample.jpg'
+        return url
+    # @property
+    # def imageURL(self):
+    #     if self.image and hasattr(self.image, 'url'):
+    #         return self.image.url
+    #     else:
+    #         return "/static/images/placeholder.png"
 
 
 class Order(models.Model):
