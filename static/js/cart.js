@@ -21,7 +21,10 @@ function updateUserOrder(productId, action) {
     var url = '/update-product/'
     fetch(url, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json'},
+        headers: { 
+            'Content-Type': 'application/json',
+            'X-CSRFToken': csrftoken
+    },
         body:JSON.stringify({'productId:': productId, 'action:' : action})
     })
 
