@@ -21,6 +21,7 @@ def cart(request):
         products = order.orderedproduct_set.all()
     else:
         products = []
+        order = {'get_cart_total':0, 'get_cart_products':0}
     context = {'products': products, 'order': order}
     return render(request, 'store/cart.html', context)
 
