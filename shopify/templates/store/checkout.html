@@ -82,12 +82,14 @@
         <hr>
         <h3>Order summary</h3>
         <hr>
+        {% for product in products %}
         <div class="row">
-            <div class="col-sm-3">Image</div>
-            <div class="col-sm-3">Product</div>
-            <div class="col-sm-3">Price</div>
-            <div class="col-sm-3">Quantity</div>
+            <div class="col-sm-3"><img class="img-fluid" src="{{product.product.imageURL}}" alt="product"></div>
+            <div class="col-sm-3">{{product.product.name}}</div>
+            <div class="col-sm-3">${{product.product.price}}</div>
+            <div class="col-sm-3">{{product.product.quantity}}</div>
         </div>
+        {% endfor %}
         <hr>
         <div class="row">
             <div class="col-sm-12"><h6>Products:</h6></div>
@@ -96,7 +98,7 @@
             <div class="col-sm-12"><h6>Total: $</h6></div>
         </div>
         
-    </?div>
+    </div>
   </div>
 </div>
 
