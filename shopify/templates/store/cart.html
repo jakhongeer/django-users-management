@@ -39,7 +39,7 @@
       </div>
 
       {% for product in products %}
-      <hr>
+      <hr />
       <div class="row">
         <div class="col-sm-3">
           <img class="img-fluid" src="{{product.product.imageURL}}" />
@@ -47,19 +47,30 @@
         <div class="col-sm-3"><p>{{product.product.name}}</p></div>
         <div class="col-sm"><p>${{product.product.price}}</p></div>
         <div class="col-sm">
-          <p>
-            {{product.quantity}}
-            <i class="fas fa-chevron-up"></i>
-            <i class="fas fa-chevron-down"></i>
-          </p>
+          <div class="row">
+            <div class="col-sm-3">
+              {{product.quantity}}
+            </div>
+            
+              
+            <div class="col-sm-9">
+              <div class="row">
+                <i class="fas fa-chevron-up"></i>
+              </div>
+              <div class="row">
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              
+              
+            </div>
+            
+          </div>
         </div>
         <div class="col-sm"><p>${{product.get_total}}</p></div>
       </div>
-      
+
       {% endfor %}
-      
     </div>
   </div>
- 
 </div>
 {% endblock content %}
