@@ -40,14 +40,9 @@ def checkout(request):
 
 def updateProduct(request):
     data = json.loads(request.body)
-    productId = data['product_id']
-    action = data['action']
-    print('Action:', action)
-    print('Product:', productId)
-
-    customer = request.user.customer
-    product = Product.objects.get(id=productId)
-    order, created = Order.objects.get_or_create(customer=customer, complete=False)
-    orderProduct, created = OrderedProduct.objects.get_or_create(order=order, product=product)
+    print(data)
+    
+    productId = data['productId']
+    
     return JsonResponse('Product was added', safe=False)
 
