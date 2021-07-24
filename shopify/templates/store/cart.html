@@ -51,14 +51,12 @@
             <div class="col-sm-3">
               {{product.quantity}}
             </div>
-            
-              
             <div class="col-sm-9">
               <div class="row">
-                <i class="fas fa-chevron-up"></i>
+                <a data-product="{{product.product.id}}" data-action="add" class="add-to-cart"><i  class="fas fa-chevron-up"></i></a>
               </div>
               <div class="row">
-                <i class="fas fa-chevron-down"></i>
+                <a data-product="{{product.product.id}}" data-action="remove" class="add-to-cart"><i  class="fas fa-chevron-down"></i></a>
               </div>
               
               
