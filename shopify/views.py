@@ -43,6 +43,23 @@ def updateProduct(request):
     print(data)
     
     productId = data['productId']
-    
+    action = data['action']
+    print('Action:', action)
+    print('Product:', productId)
+
+    customer = request.user.customer
+    product = Product.objects.get(id=productId)
+    order, created = Order.objects.get_or_create(customer=customer, ordered=False)
+    orderedProduct, created = OrderedProduct.objects.get_or_create(order=order, product=product)
+
+    if action =='add':
+        orderedProduct.quantity = (orderedProduct.quantity + 1)
+    elif action == 'remove':
+        orderedProduct.quantity = (orderedProduct.quantity - 1)
+
+    orderedProduct.save()
+
+    if orderedProduct.quantity <=0:
+        orderedProduct.delete()
     return JsonResponse('Product was added', safe=False)
 
