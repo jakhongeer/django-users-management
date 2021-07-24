@@ -40,12 +40,7 @@ class Product(models.Model):
         except:
             url = '/static/images/sample.jpg'
         return url
-    # @property
-    # def imageURL(self):
-    #     if self.image and hasattr(self.image, 'url'):
-    #         return self.image.url
-    #     else:
-    #         return "/static/images/placeholder.png"
+
 
 
 class Order(models.Model):
@@ -58,17 +53,14 @@ class Order(models.Model):
 
     def __str__(self):
         return str(self.id)
+
+    #It have to be debuggged
     def get_cart_total(self):
-        ordereditems = self.ordereditem_set.all()
-        total = sum([product.get_total for product in ordereditems])
+        orderedproducts = self.orderedproduct_set.all()
+        total = [product.get_total for product in orderedproducts]
         return total
 
-    def get_cart_products(self):
-        ordereditems = self.ordereditem_set.all()
-        total = sum([product.quantity for product in ordereditems])
-        return total
-
-class OrderedItem(models.Model):
+class OrderedProduct(models.Model):
     product = models.ForeignKey(Product, on_delete=models.SET_NULL, blank=True, null=True)
     order = models.ForeignKey(Order, on_delete=models.SET_NULL, blank=True, null=True)
     quantity = models.PositiveIntegerField(default=0, null=True, blank=True)
@@ -76,7 +68,9 @@ class OrderedItem(models.Model):
 
     def __str__(self):
         return str(self.order)
-
+    
     def get_total(self):
         total = self.product.price * self.quantity
         return total
+    
+        

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Customer, Category, Product, Order, OrderedItem
+from .models import Customer, Category, Product, Order, OrderedProduct
 # Register your models here.
 
 @admin.register(Customer)
@@ -20,6 +20,6 @@ class OrderAdmin(admin.ModelAdmin):
     pass
 
 
-@admin.register(OrderedItem)
+@admin.register(OrderedProduct)
 class OrderedItemAdmin(admin.ModelAdmin):
     pass

@@ -18,7 +18,7 @@ def cart(request):
     if request.user.is_authenticated:
         customer = request.user.customer
         order, created = Order.objects.get_or_create(customer=customer, ordered=False) #see the documentation https://docs.djangoproject.com/en/3.2/ref/models/querysets/#get-or-create
-        products = order.ordereditem_set.all()
+        products = order.orderedproduct_set.all()
     else:
         products = []
     context = {'products': products, 'order': order}
