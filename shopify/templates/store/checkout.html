@@ -2,4 +2,51 @@
 {% load static %} 
 {% block content %}
 <h2>Checkout</h2>
+<div class="row">
+<div class="col-lg-6">
+    <div class="box-element" id="form-wrapper">
+        <form id="form">
+            <div id="user-info">
+                <div class="form-field">
+                    <input required class="form-control" type="text" name="name" placeholder="Your name">
+                </div>
+                <div class="form-field">
+                    <input required class="form-control" type="text" name="email" placeholder="Your email">
+                </div>
+            </div>
+            <div class="shipping-info">
+                <hr>
+                <p>Shipping Information:</p>
+                <hr>
+                <div class="form-field">
+                    <input type="text" class="form-control" name="address" placeholder="Your address...">
+                </div>
+                <div class="form-field">
+                    <input type="text" class="form-control" name="city" placeholder="Your city...">
+                </div>
+                <div class="form-field">
+                    <input type="text" class="form-control" name="region" placeholder="Your region...">
+                </div>
+                <div class="form-field">
+                    <input type="text" class="form-control" name="country" placeholder="Your country...">
+                </div>
+            </div>
+
+            <hr>
+            <input id="fomr-button" class="btn btn-success btn-block" type="submit" value="Continue">
+        </form>
+
+    </div>
+    <br>
+    <div class="box-element hidden" id="payment-info">
+        <small>Payment options</small>
+    </div>
+</div>
+<div class="col-lg-6">
+    <div class="box-element">
+
+    </div>
+</div>
+</div>
+
 {% endblock content %}
