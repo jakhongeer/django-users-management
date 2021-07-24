@@ -1,5 +1,5 @@
 body {
-    background-color: white;
+    background-color: #f7f7f7;
 }
 .img-fluid {
     max-width: 100%;
@@ -8,3 +8,12 @@ body {
 .shadow-box {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+
+
+.box-element{
+	box-shadow:hsl(0, 0%, 80%) 0 0 16px;
+	background-color: #fff;
+	border-radius: 4px;
+	padding: 10px;
+}
+
