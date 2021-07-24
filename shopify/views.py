@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import *
 from django.http import JsonResponse
+import json
 
 
 def getProducts(request):
@@ -38,5 +39,15 @@ def checkout(request):
     return render(request, 'store/checkout.html', context)
 
 def updateProduct(request):
+    data = json.loads(request.body)
+    productId = data['product_id']
+    action = data['action']
+    print('Action:', action)
+    print('Product:', productId)
+
+    customer = request.user.customer
+    product = Product.objects.get(id=productId)
+    order, created = Order.objects.get_or_create(customer=customer, complete=False)
+    orderProduct, created = OrderedProduct.objects.get_or_create(order=order, product=product)
     return JsonResponse('Product was added', safe=False)
 
