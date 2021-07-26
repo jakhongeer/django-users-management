@@ -60,6 +60,12 @@ class Order(models.Model):
         total = [product.get_total for product in orderedproducts]
         return total
 
+    def shipping(self):
+        orderedproducts = self.orderedproduct_set.all()
+        shipping = True
+        return shipping
+    
+
 class OrderedProduct(models.Model):
     product = models.ForeignKey(Product, on_delete=models.SET_NULL, blank=True, null=True)
     order = models.ForeignKey(Order, on_delete=models.SET_NULL, blank=True, null=True)
@@ -73,4 +79,4 @@ class OrderedProduct(models.Model):
         total = self.product.price * self.quantity
         return total
     
-        
+    

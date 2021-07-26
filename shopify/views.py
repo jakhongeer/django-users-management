@@ -13,7 +13,7 @@ def getProducts(request):
 
 def store(request):
     products = Product.objects.all()
-    context = {'products': products}
+    context = {'products': products, 'shipping': False}
     return render(request, 'store/store.html', context)
 
 def cart(request):
@@ -23,7 +23,7 @@ def cart(request):
         products = order.orderedproduct_set.all()
     else:
         products = []
-        order = {'get_cart_total':0, 'get_cart_products':0}
+        order = {'get_cart_total':0, 'get_cart_products':0, 'shipping': False}
     context = {'products': products, 'order': order}
     return render(request, 'store/cart.html', context)
 
@@ -34,7 +34,7 @@ def checkout(request):
         products = order.orderedproduct_set.all()
     else:
         products = []
-        order = {'get_cart_total':0, 'get_cart_products':0}
+        order = {'get_cart_total':0, 'get_cart_products':0, 'shipping': False}
     context = {'products': products, 'order': order}
     return render(request, 'store/checkout.html', context)
 
