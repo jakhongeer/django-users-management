@@ -1,4 +1,5 @@
 {% extends 'store/main.html' %} {% load static %} {% block content %}
+
 <h2>Checkout</h2>
 <div class="row">
   <div class="col-lg-6">
@@ -64,7 +65,7 @@
 
         <hr />
         <input
-          id="fomr-button"
+          id="form-button"
           class="btn btn-success btn-block"
           type="submit"
           value="Continue"
@@ -74,30 +75,38 @@
     <br />
     <div class="box-element hidden" id="payment-info">
       <small>Payment options</small>
+      <button id="make-payment">Make payment</button>
     </div>
   </div>
   <div class="col-lg-6">
     <div class="box-element">
-        <a href="{% url 'cart' %}" class="btn btn-outline-dark">&#x2190; Back to Cart</a>
-        <hr>
-        <h3>Order summary</h3>
-        <hr>
-        {% for product in products %}
-        <div class="row">
-            <div class="col-sm-3"><img class="img-fluid" src="{{product.product.imageURL}}" alt="product"></div>
-            <div class="col-sm-3">{{product.product.name}}</div>
-            <div class="col-sm-3">${{product.product.price}}</div>
-            <div class="col-sm-3">{{product.quantity}}</div>
+      <a href="{% url 'cart' %}" class="btn btn-outline-dark"
+        >&#x2190; Back to Cart</a
+      >
+      <hr />
+      <h3>Order summary</h3>
+      <hr />
+      {% for product in products %}
+      <div class="row">
+        <div class="col-sm-3">
+          <img
+            class="img-fluid"
+            src="{{product.product.imageURL}}"
+            alt="product"
+          />
         </div>
-        {% endfor %}
-        <hr>
-        <div class="row">
-            <div class="col-sm-12"><h6>Products:</h6></div>
-        </div>
-        <div class="row">
-            <div class="col-sm-12"><h6>Total: $</h6></div>
-        </div>
-        
+        <div class="col-sm-3">{{product.product.name}}</div>
+        <div class="col-sm-3">${{product.product.price}}</div>
+        <div class="col-sm-3">{{product.quantity}}</div>
+      </div>
+      {% endfor %}
+      <hr />
+      <div class="row">
+        <div class="col-sm-12"><h6>Products:</h6></div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12"><h6>Total: $</h6></div>
+      </div>
     </div>
   </div>
 </div>
