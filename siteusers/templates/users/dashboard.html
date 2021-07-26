@@ -1,16 +1,19 @@
-{% extends 'store/main.html' %} {% load static %} 
-{% block content %}
+{% extends 'store/main.html' %} {% load static %} {% block content %}
 
+<div class="row m-3">
+  <a class="btn btn-outline-dark" href="{% url 'store' %}"
+    >&#x2190; Back to store</a
+  >
+</div>
 
 Hello, {{ user.username|default:'Guest' }}!
-
 <div>
-    {% if user.is_authenticated %}
-        <a href="{% url 'logout' %}">Logout</a>
-        <a href="{% url 'password_change' %}">Change password</a>
-    {% else %}
-        <a href="{% url 'login' %}">Login</a>
-    {% endif %}
-    </div>
+  {% if user.is_authenticated %}
+  <a href="{% url 'logout' %}">Logout</a>
+  <a href="{% url 'password_change' %}">Change password</a>
+  {% else %}
+  <a href="{% url 'login' %}">Login</a>
+  {% endif %}
+</div>
 
 {% endblock %}
