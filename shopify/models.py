@@ -82,4 +82,12 @@ class OrderedProduct(models.Model):
     def get_total(self):
         total = self.product.price * self.quantity
         return total
-    
+
+class ShippingAddress(models.Model):
+    customer = models.ForeignKey(Customer, on_delete=models.SET_NULL, blank=True, null=True)
+    order = models.ForeignKey(Order, on_delete=models.SET_NULL, blank=True, null=True)
+    address = models.CharField(max_length=255, null=True)
+    city = models.CharField(max_length=255, null=True)
+    region = models.CharField(max_length=255, null=True)
+    country = models.CharField(max_length=255, null=True)
+    date_added = models.DateTimeField(auto_now_add=True)
