@@ -24,18 +24,3 @@ class OrderAdmin(admin.ModelAdmin):
 class OrderedItemAdmin(admin.ModelAdmin):
     pass
 
-@admin.register(MultiImage)
-class MultiImageAdmin(admin.ModelAdmin):
-    pass
-
-@admin.register(Image)
-class ImageAdmin(admin.ModelAdmin):
-    pass
-
-@admin.register(Item)
-class ItemAdmin(admin.ModelAdmin):
-    pass
-
-@admin.register(BlogPost)
-class BlogPostAdmin(admin.ModelAdmin):
-    pass
