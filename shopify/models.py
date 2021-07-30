@@ -62,8 +62,11 @@ class Order(models.Model):
         return total
 
     def shipping(self):
+        shipping = False
         orderedproducts = self.orderedproduct_set.all()
-        shipping = True
+        for i in orderedproducts:
+            if i.product.digital == False:
+                shipping = True
         return shipping
     
 
