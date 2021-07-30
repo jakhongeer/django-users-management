@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from .models import *
 from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 import json
+import datetime
 
 
 def getProducts(request):
@@ -34,6 +36,7 @@ def cart(request):
         order = {'get_cart_total':0, 'get_cart_products':0, 'shipping': False}
     context = {'products': products, 'order': order}
     return render(request, 'store/cart.html', context)
+
 
 def checkout(request):
     if request.user.is_authenticated:
@@ -71,7 +74,30 @@ def updateProduct(request):
         orderedProduct.delete()
     return JsonResponse('Product was added', safe=False)
 
-
+@csrf_exempt
 def processOrder(request):
+    print('Data: ', request.body)
+    transaction_id = datetime.datetime.now().timestamp()
+    data = json.loads(request.body)
+
+    if request.user.is_authenticated:
+        customer = request.user.customer
+        order, created = Order.objects.get_or_create(customer=customer, ordered=False)
+        #total = float(data['form']['total'])
+        order.transaction_id = transaction_id
+    #It should uncomment when the get_cart_total is fixed
+        #if total == order.get_cart_total:
+        #    order.ordered = True
+        #order.save()
+        if order.shipping == True:
+            ShippingAddress.objects.create(
+                customer=customer, 
+                order=order,
+                address=data['shipping']['address'],
+                city=data['shipping']['city'],
+                region=data['shipping']['region'],
+                country=data['shipping']['country']
+            
+            )
     return JsonResponse('Payment complete!', safe=False)
 
