@@ -25,7 +25,7 @@
             />
           </div>
         </div>
-        <div class="shipping-info">
+        <div id="shipping-info">
           <hr />
           <p>Shipping Information:</p>
           <hr />
@@ -115,11 +115,11 @@
   var shipping = "{{order.shipping}}";
 
   if (shipping == "False") {
-    document.getElementById("shipping-info").innerHTML = ""
+    document.getElementById("shipping-info").innerHTML = ''
   }
 
   if (user != 'AnonymousUser'){
-    document.getElementById("user-info") =.innerHTML = ''
+    document.getElementById("user-info").innerHTML = ''
   }
 
   if (shipping == 'False' && user != 'AnonymousUser'){
