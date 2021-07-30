@@ -29,6 +29,7 @@ class Product(models.Model):
     quantity = models.PositiveIntegerField(null=True, blank=True, default=0)
     createdAt = models.DateTimeField(auto_now_add=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    digital = models.BooleanField(default=False, null=True, blank=True)
 
     def __str__(self):
         return self.name
@@ -54,7 +55,7 @@ class Order(models.Model):
     def __str__(self):
         return str(self.id)
 
-    #It have to be debuggged
+    #It has to be debuggged
     def get_cart_total(self):
         orderedproducts = self.orderedproduct_set.all()
         total = [product.get_total for product in orderedproducts]
