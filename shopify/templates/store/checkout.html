@@ -118,6 +118,17 @@
     document.getElementById("shipping-info").innerHTML = ""
   }
 
+  if (user != 'AnonymousUser'){
+    document.getElementById("user-info") =.innerHTML = ''
+  }
+
+  if (shipping == 'False' && user != 'AnonymousUser'){
+    //Hide entire form user is logged in shiiping is false and
+    document.getElementById("form-wrapper").classList.add("hidden");
+    //Show the payment if logged in user wants to buy an item that does not require shipping 
+    document.getElementById("payment-info").classList.remove("hidden");
+  }
+
   var form = document.getElementById("form")
   form.addEventListener('submit', function(e){
     e.preventDefault()
