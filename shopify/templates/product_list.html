@@ -1,14 +1,5 @@
-{% extends 'base.html' %}
-
-{% block content %}
+{% extends 'base.html' %} {% block content %}
 <h2>Here is the list of the products</h2>
 
-{% for Product in Products %}
-    {{ Product }}
-    {{ Product.brand }}
-    {{ Product.description}}
-    {{ Product.image }}
-
-{% endfor %}
-
-{% endblock %}
+{% for Product in Products %} {{ Product }} {{ Product.brand }} {{
+Product.description}} {{ Product.image }} {% endfor %} {% endblock %}
